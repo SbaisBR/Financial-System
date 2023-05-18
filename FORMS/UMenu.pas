@@ -59,14 +59,15 @@ implementation
 
 uses    UInformacoes, ULogin,
   UDM, UCalculadora , UCadMovimentacao, UMovimentacao, UCadUsuario, UUsuarios,
-  ULoginUsuario;
+  ULoginUsuario, UCadCliente;
 
 
 {$R *.dfm}
 
 procedure TFrmMenu.btnClientesClick(Sender: TObject);
 begin
-//  frm
+  frmCadCliente := TfrmCadCliente.create(nil);
+  frmCadCliente.ShowModal;
 end;
 
 procedure TFrmMenu.BtnMovimentoClick(Sender: TObject);

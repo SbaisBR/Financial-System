@@ -119,12 +119,12 @@
 			<Linker Name="ExeDescription"></Linker>
 		</Linker>
 		<Directories>
-			<Directories Name="OutputDir">C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\Sistema-Financeiro\EXE</Directories>
-			<Directories Name="UnitOutputDir">C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\Sistema-Financeiro\DCU</Directories>
+			<Directories Name="OutputDir">C:\Users\user\OneDrive\Documentos\GitHub\Financial-System\EXE</Directories>
+			<Directories Name="UnitOutputDir">C:\Users\user\OneDrive\Documentos\GitHub\Financial-System\DCU</Directories>
 			<Directories Name="PackageDLLOutputDir"></Directories>
 			<Directories Name="PackageDCPOutputDir"></Directories>
 			<Directories Name="SearchPath"></Directories>
-			<Directories Name="Packages"></Directories>
+			<Directories Name="Packages">vcl;vclx;dbrtl;Rave65VCL;bdertl;rtl;vcldb;adortl;dbxcds;dbexpress;vclib;ibxpress;xmlrtl;vclactnband;inet;IntrawebDB_80_100;Intraweb_80_100;vclie;inetdbbde;inetdbxpress;IndyCore;IndySystem;dclOfficeXP;VclSmp;soaprtl;dsnap;IndyProtocols;vcldbx;dsnapcon;websnap;webdsnap;dclZipForged10;vclZipForged10;Jcl;JclVcl;JvCoreD10R;JvBandsD10R;JvSystemD10R;JvStdCtrlsD10R;JvDBD10R;JvDlgsD10R;JvCmpD10R;JvCryptD10R;JvCtrlsD10R;JvCustomD10R;JvDockingD10R;JvDotNetCtrlsD10R;JvEDID10R;JvHMID10R;JvJansD10R;JvManagedThreadsD10R;JvNetD10R;JvPageCompsD10R;JvPluginD10R;JvPrintPreviewD10R;JvRuntimeDesignD10R;JvTimeFrameworkD10R;JvUIBD10R;JvValidatorsD10R;JvWizardD10R;JvXPCtrlsD10R;TeeImage710;TeeLanguage710;TeePro710;TeeGL710;TeeUI710;TeeDB710;Tee710;TeeTree2D10Tee7;PacoteCurso;dacvcl100;dac100;CRControls100;mydacvcl100;mydac100;DelPrint2006;RLibWinD7vcl;ACBrComum;synapse;ACBrSerial;ACBrDiversos;ACBrTCP;ACBr_TEFD;ACBr_SAT;PCN2;ACBr_BoletoFC_Fortes;ACBr_Boleto;ACBr_NFe2;ACBrCapicom;ACBrOpenSSL;JvMMD10R;QExport4RT;spdGovBase_D2006;spdGov_D2006;spdGNRe_D2006;spdGNReGov_D2006;spdMDFe_D2006;spdMDFeDataSet_D2006;spdMDFeGov_D2006;spdNFSe_D2006;spdNFSeGov_D2006;spdNFCe_D2006;spdNFCeGov_D2006;spdNFE_D2006;spdNFeGov_D2006</Directories>
 			<Directories Name="Conditionals"></Directories>
 			<Directories Name="DebugSourceDirs"></Directories>
 			<Directories Name="UsePackages">False</Directories>
@@ -170,8 +170,10 @@
 			<VersionInfoKeys Name="ProductName"></VersionInfoKeys>
 			<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
 			<VersionInfoKeys Name="Comments"></VersionInfoKeys>
-		</VersionInfoKeys>
-	</Delphi.Personality>
+		</VersionInfoKeys>  <Excluded_Packages>
+      <Excluded_Packages Name="e:\Sistemas\GestaoPRO\Componentes\ACBR2015\Lib\Delphi\LibD10\ACBr_NFSe.bpl">ACBr - Nota Fiscal Eletrônica de Serviço - (http://www.projetoacbr.com.br/)</Excluded_Packages>
+    </Excluded_Packages>
+  </Delphi.Personality>
 	<StarTeamAssociation></StarTeamAssociation>
 	<StarTeamNonRelativeFiles></StarTeamNonRelativeFiles>
 </BorlandProject>

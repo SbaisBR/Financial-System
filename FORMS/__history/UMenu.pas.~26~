@@ -11,7 +11,6 @@ type
   TFrmMenu = class(TForm)
     PnlTopo: TPanel;
     BtnSair: TSpeedButton;
-    BtnUsuarios: TSpeedButton;
     BtnMovimento: TSpeedButton;
     StatusBar1: TStatusBar;
     LblCentro: TLabel;
@@ -30,8 +29,11 @@ type
     btnClientes: TSpeedButton;
     Ferramentas1: TMenuItem;
     Calculadora1: TMenuItem;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BtnMovimentoClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnClientesClick(Sender: TObject);
     procedure Calculadora1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure BtnTrocaDeUsuarioClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -55,10 +57,31 @@ var
 
 implementation
 
-uses UMovimento, UPesquisa, UUsuario, UPesquisaUsuario, UInformacoes, ULogin,
-  UDM, UCalculadora;
+uses    UInformacoes, ULogin,
+  UDM, UCalculadora , UCadMovimentacao, UMovimentacao, UCadUsuario, UUsuarios,
+  ULoginUsuario, UCadCliente;
+
 
 {$R *.dfm}
+
+procedure TFrmMenu.btnClientesClick(Sender: TObject);
+begin
+  frmCadCliente := TfrmCadCliente.create(nil);
+  frmCadCliente.ShowModal;
+end;
+
+procedure TFrmMenu.BtnMovimentoClick(Sender: TObject);
+begin
+  //Abre o formulario de Movimento
+  FrmMovimento := TFrmMovimento.Create (self);
+  FrmMovimento.ShowModal;
+  try
+
+  finally
+  FrmMovimento.free;
+  FrmMovimento:= nil;
+  end;
+end;
 
 procedure TFrmMenu.BtnSairClick(Sender: TObject);
 begin
@@ -75,6 +98,7 @@ procedure TFrmMenu.BtnTrocaDeUsuarioClick(Sender: TObject);
 begin
   //Troca de usuario
   FrmMenu.Hide;
+  FrmLogin.Visible := True;
   FrmLogin.EdtNome.Clear;
   FrmLogin.EdtSenha.Clear;
   FrmLogin.EdtNome.SetFocus;
@@ -99,6 +123,16 @@ begin
   FrmCalculadora.ShowModal;
 end;
 
+procedure TFrmMenu.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Application.Terminate;
+end;
+
+procedure TFrmMenu.FormCreate(Sender: TObject);
+begin
+  frmLogin.Visible := False;
+end;
+
 procedure TFrmMenu.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #27 then
@@ -107,16 +141,16 @@ end;
 
 procedure TFrmMenu.FormShow(Sender: TObject);
 begin
-  //Valida o tipo de usuario
-  if dm.Tipo = 'APOIO'  then
-  begin
-    BtnUsuarios.Enabled := false;
-    ListadeUsuarios.Enabled := false;
-  end
-  else // Se for diferente, aborte
-  begin
-    Abort;
-  end;
+//  //Valida o tipo de usuario
+//  if dm.Tipo = 'APOIO'  then
+//  begin
+//    BtnUsuarios.Enabled := false;
+//    ListadeUsuarios.Enabled := false;
+//  end
+//  else // Se for diferente, aborte
+//  begin
+//    Abort;
+//  end;
 end;
 
 procedure TFrmMenu.InformacoesClick(Sender: TObject);
@@ -148,14 +182,14 @@ end;
 procedure TFrmMenu.ListaMovimentosClick(Sender: TObject);
 begin
   //Abre a tela de pesquisa de movimentos
-  FrmPesquisa := TFrmPesquisa.Create(Self);
-  FrmPesquisa.BtnTransferir.Enabled := false;
-  FrmPesquisa.ShowModal;
+  FrmPesquisaMovimento := TFrmPesquisaMovimento.Create(Self);
+  FrmPesquisaMovimento.BtnTransferir.Enabled := false;
+  FrmPesquisaMovimento.ShowModal;
   try
 
   finally
-    FrmPesquisa.Free;
-    FrmPesquisa := nil;
+    FrmPesquisaMovimento.Free;
+    FrmPesquisaMovimento := nil;
   end;
 end;
 
@@ -182,7 +216,8 @@ end;
 procedure TFrmMenu.UsuariosClick(Sender: TObject);
 begin
   //Quando clicar no usuarios pelo Menu, clique o botão Usuarios.
-  BtnUsuarios.Click;
+  FrmLogin2 := TFrmLogin2.create(nil);
+  FrmLogin2.ShowModal;
 end;
 
 end.

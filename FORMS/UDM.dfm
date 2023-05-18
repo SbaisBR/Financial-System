@@ -332,4 +332,94 @@ object DM: TDM
     Left = 283
     Top = 219
   end
+  object sqlCadCliente: TSQLDataSet
+    SchemaName = 'sysdba'
+    CommandText = 'SELECT * FROM CLIENTE'#13#10'ORDER BY ID'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = Conexao
+    Left = 188
+    Top = 178
+    object sqlCadClienteID: TIntegerField
+      FieldName = 'ID'
+      Required = True
+    end
+    object sqlCadClienteNOME: TStringField
+      FieldName = 'NOME'
+      Size = 100
+    end
+    object sqlCadClienteENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Size = 100
+    end
+    object sqlCadClienteCPF: TStringField
+      FieldName = 'CPF'
+      Size = 10
+    end
+    object sqlCadClienteTELEFONE: TStringField
+      FieldName = 'TELEFONE'
+      Size = 14
+    end
+    object sqlCadClienteDATA_CAD: TDateField
+      FieldName = 'DATA_CAD'
+    end
+    object sqlCadClienteCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Size = 100
+    end
+    object sqlCadClienteESTADO: TStringField
+      FieldName = 'ESTADO'
+      FixedChar = True
+      Size = 2
+    end
+  end
+  object dspCadCliente: TDataSetProvider
+    DataSet = sqlCadCliente
+    Left = 220
+    Top = 178
+  end
+  object cdsCadCliente: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspCadCliente'
+    Left = 252
+    Top = 177
+    object cdsCadClienteID: TIntegerField
+      FieldName = 'ID'
+      Required = True
+    end
+    object cdsCadClienteNOME: TStringField
+      FieldName = 'NOME'
+      Size = 100
+    end
+    object cdsCadClienteENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Size = 100
+    end
+    object cdsCadClienteCPF: TStringField
+      FieldName = 'CPF'
+      Size = 10
+    end
+    object cdsCadClienteTELEFONE: TStringField
+      FieldName = 'TELEFONE'
+      Size = 14
+    end
+    object cdsCadClienteDATA_CAD: TDateField
+      FieldName = 'DATA_CAD'
+    end
+    object cdsCadClienteCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Size = 100
+    end
+    object cdsCadClienteESTADO: TStringField
+      FieldName = 'ESTADO'
+      FixedChar = True
+      Size = 2
+    end
+  end
+  object dtsCadCliente: TDataSource
+    DataSet = cdsCadCliente
+    Left = 283
+    Top = 177
+  end
 end

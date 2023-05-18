@@ -12,7 +12,9 @@ uses
   UCalculadora in '..\FORMS\UCalculadora.pas' {FrmCalculadora},
   ULogin in '..\FORMS\ULogin.pas' {FrmLogin},
   UMensagem in '..\FORMS\UMensagem.pas' {msg},
-  ULoginUsuario in '..\FORMS\ULoginUsuario.pas' {FrmLogin2};
+  ULoginUsuario in '..\FORMS\ULoginUsuario.pas' {FrmLogin2},
+  UCliente in '..\FORMS\UCliente.pas' {FrmPesquisaCliente},
+  UCadCliente in '..\FORMS\UCadCliente.pas' {FrmCadCliente};
 
 {$R *.res}
 

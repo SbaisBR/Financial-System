@@ -64,6 +64,26 @@ type
     StringField3: TStringField;
     DateField1: TDateField;
     dtsPesquisaUsu: TDataSource;
+    sqlCadCliente: TSQLDataSet;
+    dspCadCliente: TDataSetProvider;
+    cdsCadCliente: TClientDataSet;
+    dtsCadCliente: TDataSource;
+    sqlCadClienteID: TIntegerField;
+    sqlCadClienteNOME: TStringField;
+    sqlCadClienteENDERECO: TStringField;
+    sqlCadClienteCPF: TStringField;
+    sqlCadClienteTELEFONE: TStringField;
+    sqlCadClienteDATA_CAD: TDateField;
+    sqlCadClienteCIDADE: TStringField;
+    sqlCadClienteESTADO: TStringField;
+    cdsCadClienteID: TIntegerField;
+    cdsCadClienteNOME: TStringField;
+    cdsCadClienteENDERECO: TStringField;
+    cdsCadClienteCPF: TStringField;
+    cdsCadClienteTELEFONE: TStringField;
+    cdsCadClienteDATA_CAD: TDateField;
+    cdsCadClienteCIDADE: TStringField;
+    cdsCadClienteESTADO: TStringField;
   private
     { Private declarations }
   public

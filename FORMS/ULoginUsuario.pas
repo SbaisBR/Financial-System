@@ -32,7 +32,7 @@ var
 
 implementation
 
-uses UDM, UMenu, UUsuario;
+uses UDM, UMenu, UCadUsuario;
 
 {$R *.dfm}
 

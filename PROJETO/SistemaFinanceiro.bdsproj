@@ -170,7 +170,8 @@
 			<VersionInfoKeys Name="ProductName"></VersionInfoKeys>
 			<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
 			<VersionInfoKeys Name="Comments"></VersionInfoKeys>
-		</VersionInfoKeys>  <Excluded_Packages>
+		</VersionInfoKeys>  
+    <Excluded_Packages>
       <Excluded_Packages Name="e:\Sistemas\GestaoPRO\Componentes\ACBR2015\Lib\Delphi\LibD10\ACBr_NFSe.bpl">ACBr - Nota Fiscal Eletrônica de Serviço - (http://www.projetoacbr.com.br/)</Excluded_Packages>
     </Excluded_Packages>
   </Delphi.Personality>

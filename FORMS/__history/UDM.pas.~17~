@@ -120,10 +120,10 @@ type
     StringField19: TStringField;
     DateField5: TDateField;
     dtsClientes: TDataSource;
+    sqlClientesPESSOAFISICA: TIntegerField;
+    cdsClientesPESSOAFISICA: TIntegerField;
     sqlCadClientePESSOAFISICA: TStringField;
     cdsCadClientePESSOAFISICA: TStringField;
-    sqlClientesPESSOAFISICA: TStringField;
-    cdsClientesPESSOAFISICA: TStringField;
   private
     { Private declarations }
   public

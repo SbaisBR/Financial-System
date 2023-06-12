@@ -72,83 +72,43 @@ begin
       dm.cdsClientes.Open;
     end;
 
-    //Opção  de pesquisa por Endereco
+    //Opção  de pesquisa por senha
     2:
     begin
       dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE ENDERECO ='''+EdtDescricao.Text+'''';
+      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE DATA_CAD ='''+EdtDescricao.Text+'''';
       dm.cdsClientes.Open;
     end;
 
-    //Opção de pesquisa por CNPJ
+    //Opção de pesquisa por tipo
     3:
     begin
       dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE CNPJ ='''+EdtDescricao.Text+'''';
+      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE PESSOAFISICA ='''+EdtDescricao.Text+'''';
       dm.cdsClientes.Open;
     end;
 
-    //Opção de pesquisa por TELEFONE
+    //Opção de pesquisa por cadastro
     4:
     begin
       dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE TELEFONE = '''+MKInicio.Text+'''';
+      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE ENDERECO = '''+MKInicio.Text+'''';
       dm.cdsClientes.Open;
     end;
 
-    //Opção de pesquisa por Data de cadastro
+    //Opção de pesquisa por periodo
     5:
     begin
       dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE DATA_CAD = '''+MKInicio.Text+'''';
+      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE DATA_CAD BETWEEN '''+MKInicio.Text+''' AND '''+MKFim.Text+'''';
       dm.cdsClientes.Open;
     end;
 
-    //Opção de pesquisar todos os CIDADE
+    //Opção de pesquisar todos os usuarios
     6:
     begin
       dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE CIDADE = '''+EdtDescricao.Text+'''';
-      dm.cdsClientes.Open;
-    end;
-
-    //Opção de pesquisar por Estado
-    7:
-    begin
-      dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE ESTADO = '''+EdtDescricao.Text+'''';
-      dm.cdsClientes.Open;
-    end;
-
-    //Opção de pesquisar por Sexo
-    8:
-    begin
-      dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE SEXO = '''+EdtDescricao.Text+'''';
-      dm.cdsClientes.Open;
-    end;
-
-    //Opção de pesquisar por Inativo
-    9:
-    begin
-      dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE INATIVO = '''+EdtDescricao.Text+'''';
-      dm.cdsClientes.Open;
-    end;
-
-    //Opção de pesquisar por Estado
-    10:
-    begin
-      dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE PESSOAFISICA = '''+EdtDescricao.Text+'''';
-      dm.cdsClientes.Open;
-    end;
-
-    //Opção de pesquisar por Estado
-    11:
-    begin
-      dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE PESSOAFISICA = '''+EdtDescricao.Text+'''';
+      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE';
       dm.cdsClientes.Open;
     end;
   end;
@@ -214,10 +174,10 @@ begin
 
 
     2:Begin
-    //Pesquisa por Endereço
+    //Pesquisa por SENHA
     EdtDescricao.Visible := True;
     LblDescricao.Visible := True;
-    LblDescricao.Caption := 'Digite O endereço:';
+    LblDescricao.Caption := 'Digite a Senha:';
     LblInicio.Visible := false;
     MKinicio.Visible := false;
     LblFim.Visible := false;
@@ -227,9 +187,9 @@ begin
     end;
 
     3:Begin
-    //Pesquisa por cnpj
+    //Pesquisa por TIPO
     EdtDescricao.Visible:= true;
-    LblDescricao.Caption := 'Digite o CNPJ:';
+    LblDescricao.Caption := 'Digite o tipo:';
     LblDescricao.Visible:= true;
     LblInicio.Visible := false;
     MKinicio.Visible := false;
@@ -240,10 +200,10 @@ begin
     end;
 
    4:Begin
-    //Pesquisa por Telefone
+    //Pesquisa por data de cadastro
     EdtDescricao.Visible:= false;
     LblDescricao.Visible := false;
-    LblInicio.Caption := 'Digite o Telefone';
+    LblInicio.Caption := 'Digite a data';
     LblInicio.Visible := true;
     MKinicio.Visible := true;
     LblFim.Visible := false;
@@ -252,99 +212,33 @@ begin
     MKInicio.Clear;
    end;
 
-   
     5:begin
-    //Pesquisa por Data de cadastro
+    //Pesquisa por periodo, entre inicio e fim
     EdtDescricao.Visible := false;
     LblDescricao.Visible := true;
-    LblDescricao.Caption := 'Digite a data';
+    LblDescricao.Caption := 'DIGITE O PERIODO';
     LblInicio.Visible := true;
-    LblInicio.Caption := 'Data:';
+    LblInicio.Caption := 'Inicio:';
     MKInicio.Visible := true;
     LblFim.Visible := true;
+    LblFim.Caption := 'Fim:';
     MkFim.Visible := true;
     MkInicio.SetFocus;
     MKinicio.Clear;
     MKfim.Clear;
     end;
 
-    6:Begin
-    //Pesquisa por CIDADE
-    EdtDescricao.Visible:= true;
-    LblDescricao.Caption := 'Digite a cidade:';
-    LblDescricao.Visible:= true;
-    LblInicio.Visible := false;
-    MKinicio.Visible := false;
-    LblFim.Visible := false;
-    MkFim.Visible := false;
-    EdtDescricao.SetFocus;
-    EdtDescricao.Clear;
-    end;
 
-
-    7:Begin
-    //Pesquisa por Estado
-    EdtDescricao.Visible:= true;
-    LblDescricao.Caption := 'Digite o Estado:';
-    LblDescricao.Visible:= true;
-    LblInicio.Visible := false;
-    MKinicio.Visible := false;
-    LblFim.Visible := false;
-    MkFim.Visible := false;
-    EdtDescricao.SetFocus;
-    EdtDescricao.Clear;
-    end;
-
-    8:Begin
-    //Pesquisa por Sexo
-    EdtDescricao.Visible:= true;
-    LblDescricao.Caption := 'Digite o Sexo (M ou F):';
-    LblDescricao.Visible:= true;
-    LblInicio.Visible := false;
-    MKinicio.Visible := false;
-    LblFim.Visible := false;
-    MkFim.Visible := false;
-    EdtDescricao.SetFocus;
-    EdtDescricao.Clear;
-    end;
-
-    9:Begin
-    //Pesquisa por Inatividade
-    EdtDescricao.Visible:= true;
-    LblDescricao.Visible:= true;
-    LblInicio.Visible := false;
-    MKinicio.Visible := false;
-    LblFim.Visible := false;
-    MkFim.Visible := false;
-    EdtDescricao.SetFocus;
-    EdtDescricao.Clear;
-    DM.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE INATIVO = ''T''';
-    DM.cdsClientes.Open;
-    end;
-
-    10:Begin
-    //Pesquisa por Estado
-    EdtDescricao.Visible:= true;
-    LblDescricao.Visible:= true;
-    LblInicio.Visible := false;
-    MKinicio.Visible := false;
-    LblFim.Visible := false;
-    MkFim.Visible := false;
-    EdtDescricao.SetFocus;
-    EdtDescricao.Clear;
-    DM.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE PESSOA FISICA = ''T'''
-    end;
-
-    11: Begin
+    6: Begin
     //Pesquisa por todos os campos
     EdtDescricao.Visible := false;
     LblDescricao.Visible := true;
-    LblDescricao.Caption := 'MOSTRANDO TODOS OS CLIENTES';
+    LblDescricao.Caption := 'MOSTRANDO TODOS OS USUARIOS';
     LblInicio.Visible := false;
     MkInicio.Visible := false;
     LblFim.Visible := false;
     MkFim.Visible := false;
-    DM.sqlMovimento.CommandText := 'SELECT * FROM CLIENTE';
+    DM.sqlMovimento.CommandText := 'SELECT * FROM MOVIMENTO';
     DM.cdsMovimento.Open;
     end;
   end;

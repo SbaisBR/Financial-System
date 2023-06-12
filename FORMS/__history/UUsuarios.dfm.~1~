@@ -25,6 +25,7 @@ object FrmPesquisaUsuario: TFrmPesquisaUsuario
     BevelOuter = bvNone
     Color = clGradientActiveCaption
     TabOrder = 0
+    ExplicitTop = 0
     object LblChave: TLabel
       Left = 30
       Top = 18
@@ -1929,7 +1930,7 @@ object FrmPesquisaUsuario: TFrmPesquisaUsuario
       item
         Expanded = False
         FieldName = 'IDUSUARIO'
-        Title.Caption = 'CODIGO'
+        Title.Caption = 'C'#211'DIGO'
         Visible = True
       end
       item
@@ -1950,6 +1951,7 @@ object FrmPesquisaUsuario: TFrmPesquisaUsuario
       item
         Expanded = False
         FieldName = 'CADASTRO'
+        Title.Caption = 'DATA.DE.CADASTRO'
         Visible = True
       end>
   end
@@ -1962,6 +1964,8 @@ object FrmPesquisaUsuario: TFrmPesquisaUsuario
     BevelOuter = bvNone
     Color = clGradientActiveCaption
     TabOrder = 3
+    ExplicitLeft = 8
+    ExplicitTop = -7
     object lblTitulo: TLabel
       Left = 29
       Top = 6

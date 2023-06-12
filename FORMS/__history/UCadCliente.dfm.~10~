@@ -3418,8 +3418,6 @@ object FrmCadCliente: TFrmCadCliente
     Top = 204
     Width = 57
     Height = 24
-    DataField = 'ESTADO'
-    DataSource = DM.dtsCadCliente
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -3481,7 +3479,6 @@ object FrmCadCliente: TFrmCadCliente
     Width = 95
     Height = 17
     Caption = 'Pessoa Fisica'
-    DataField = 'PESSOAFISICA'
     DataSource = DM.dtsCadCliente
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText

@@ -1918,7 +1918,7 @@ object FrmPesquisaUsuario: TFrmPesquisaUsuario
     Width = 1363
     Height = 636
     Align = alClient
-    DataSource = DM.dtsPesquisaUsu
+    DataSource = DM.dtsUsuario
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText

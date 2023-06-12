@@ -72,83 +72,43 @@ begin
       dm.cdsClientes.Open;
     end;
 
-    //Opção  de pesquisa por Endereco
+    //Opção  de pesquisa por senha
     2:
     begin
       dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE ENDERECO ='''+EdtDescricao.Text+'''';
+      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE DATA_CAD ='''+EdtDescricao.Text+'''';
       dm.cdsClientes.Open;
     end;
 
-    //Opção de pesquisa por CNPJ
+    //Opção de pesquisa por tipo
     3:
     begin
       dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE CNPJ ='''+EdtDescricao.Text+'''';
+      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE PESSOAFISICA ='''+EdtDescricao.Text+'''';
       dm.cdsClientes.Open;
     end;
 
-    //Opção de pesquisa por TELEFONE
+    //Opção de pesquisa por cadastro
     4:
     begin
       dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE TELEFONE = '''+MKInicio.Text+'''';
+      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE ENDERECO = '''+MKInicio.Text+'''';
       dm.cdsClientes.Open;
     end;
 
-    //Opção de pesquisa por Data de cadastro
+    //Opção de pesquisa por periodo
     5:
     begin
       dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE DATA_CAD = '''+MKInicio.Text+'''';
+      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE DATA_CAD BETWEEN '''+MKInicio.Text+''' AND '''+MKFim.Text+'''';
       dm.cdsClientes.Open;
     end;
 
-    //Opção de pesquisar todos os CIDADE
+    //Opção de pesquisar todos os usuarios
     6:
     begin
       dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE CIDADE = '''+EdtDescricao.Text+'''';
-      dm.cdsClientes.Open;
-    end;
-
-    //Opção de pesquisar por Estado
-    7:
-    begin
-      dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE ESTADO = '''+EdtDescricao.Text+'''';
-      dm.cdsClientes.Open;
-    end;
-
-    //Opção de pesquisar por Sexo
-    8:
-    begin
-      dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE SEXO = '''+EdtDescricao.Text+'''';
-      dm.cdsClientes.Open;
-    end;
-
-    //Opção de pesquisar por Inativo
-    9:
-    begin
-      dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE INATIVO = '''+EdtDescricao.Text+'''';
-      dm.cdsClientes.Open;
-    end;
-
-    //Opção de pesquisar por Estado
-    10:
-    begin
-      dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE PESSOAFISICA = '''+EdtDescricao.Text+'''';
-      dm.cdsClientes.Open;
-    end;
-
-    //Opção de pesquisar por Estado
-    11:
-    begin
-      dm.cdsClientes.Close;
-      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE PESSOAFISICA = '''+EdtDescricao.Text+'''';
+      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE';
       dm.cdsClientes.Open;
     end;
   end;
@@ -322,29 +282,16 @@ begin
     DM.cdsClientes.Open;
     end;
 
-    10:Begin
-    //Pesquisa por Estado
-    EdtDescricao.Visible:= true;
-    LblDescricao.Visible:= true;
-    LblInicio.Visible := false;
-    MKinicio.Visible := false;
-    LblFim.Visible := false;
-    MkFim.Visible := false;
-    EdtDescricao.SetFocus;
-    EdtDescricao.Clear;
-    DM.sqlClientes.CommandText := 'SELECT * FROM CLIENTE WHERE PESSOA FISICA = ''T'''
-    end;
-
-    11: Begin
+    8: Begin
     //Pesquisa por todos os campos
     EdtDescricao.Visible := false;
     LblDescricao.Visible := true;
-    LblDescricao.Caption := 'MOSTRANDO TODOS OS CLIENTES';
+    LblDescricao.Caption := 'MOSTRANDO TODOS OS USUARIOS';
     LblInicio.Visible := false;
     MkInicio.Visible := false;
     LblFim.Visible := false;
     MkFim.Visible := false;
-    DM.sqlMovimento.CommandText := 'SELECT * FROM CLIENTE';
+    DM.sqlMovimento.CommandText := 'SELECT * FROM MOVIMENTO';
     DM.cdsMovimento.Open;
     end;
   end;

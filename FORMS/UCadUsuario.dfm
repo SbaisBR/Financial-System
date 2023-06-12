@@ -629,7 +629,7 @@ object FrmUsuario: TFrmUsuario
     end
     object BtnPesquisar: TBitBtn
       AlignWithMargins = True
-      Left = 555
+      Left = 563
       Top = 7
       Width = 121
       Height = 45

@@ -523,10 +523,8 @@ object DM: TDM
     object DateField3: TDateField
       FieldName = 'DATABLOQ'
     end
-    object sqlClientesPESSOAFISICA: TStringField
+    object sqlClientesPESSOAFISICA: TIntegerField
       FieldName = 'PESSOAFISICA'
-      FixedChar = True
-      Size = 11
     end
   end
   object dspClientes: TDataSetProvider
@@ -535,7 +533,6 @@ object DM: TDM
     Top = 130
   end
   object cdsClientes: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspClientes'
@@ -592,10 +589,8 @@ object DM: TDM
       FieldName = 'DATABLOQ'
       EditMask = '00/00/0000;1;_'
     end
-    object cdsClientesPESSOAFISICA: TStringField
+    object cdsClientesPESSOAFISICA: TIntegerField
       FieldName = 'PESSOAFISICA'
-      FixedChar = True
-      Size = 11
     end
   end
   object dtsClientes: TDataSource

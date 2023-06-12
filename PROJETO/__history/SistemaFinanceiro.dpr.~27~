@@ -23,5 +23,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.CreateForm(TfrmEmail, frmEmail);
   Application.Run;
 end.

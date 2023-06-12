@@ -1,4 +1,4 @@
-object FrmPesquisaUsuario: TFrmPesquisaUsuario
+object FrmPesquisaCliente: TFrmPesquisaCliente
   Left = 71
   Top = 0
   Caption = 'Usu'#225'rios'
@@ -1912,13 +1912,13 @@ object FrmPesquisaUsuario: TFrmPesquisaUsuario
       TabOrder = 0
     end
   end
-  object DBGrid1: TDBGrid
+  object gridClientes: TDBGrid
     Left = 0
     Top = 111
     Width = 1363
     Height = 636
     Align = alClient
-    DataSource = DM.dtsPesquisaUsu
+    DataSource = DM.dtsCadCliente
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -1928,7 +1928,7 @@ object FrmPesquisaUsuario: TFrmPesquisaUsuario
     Columns = <
       item
         Expanded = False
-        FieldName = 'IDUSUARIO'
+        FieldName = 'ID'
         Title.Caption = 'CODIGO'
         Visible = True
       end
@@ -1939,17 +1939,47 @@ object FrmPesquisaUsuario: TFrmPesquisaUsuario
       end
       item
         Expanded = False
-        FieldName = 'SENHA'
+        FieldName = 'ENDERECO'
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'TIPO'
+        FieldName = 'CNPJ'
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'CADASTRO'
+        FieldName = 'TELEFONE'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DATA_CAD'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CIDADE'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ESTADO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'SEXO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'INATIVO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PESSOAFISICA'
         Visible = True
       end>
   end
@@ -1965,9 +1995,9 @@ object FrmPesquisaUsuario: TFrmPesquisaUsuario
     object lblTitulo: TLabel
       Left = 29
       Top = 6
-      Width = 70
+      Width = 66
       Height = 19
-      Caption = 'Usu'#225'rios'
+      Caption = 'Clientes'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16

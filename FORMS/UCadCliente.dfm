@@ -2,8 +2,8 @@ object FrmCadCliente: TFrmCadCliente
   Left = 0
   Top = 0
   Caption = 'Cadastro de Cliente'
-  ClientHeight = 432
-  ClientWidth = 834
+  ClientHeight = 377
+  ClientWidth = 1001
   Color = clTeal
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,69 +14,146 @@ object FrmCadCliente: TFrmCadCliente
   OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 152
-    Top = 120
-    Width = 71
+  object Bevel1: TBevel
+    Left = 32
+    Top = 98
+    Width = 921
+    Height = 183
+  end
+  object lblID: TLabel
+    Left = 48
+    Top = 110
+    Width = 14
     Height = 16
-    Caption = 'IDUSUARIO'
+    Caption = 'ID'
+    FocusControl = edID
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
+    Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label2: TLabel
-    Left = 152
-    Top = 165
+  object lblSexo: TLabel
+    Left = 520
+    Top = 110
+    Width = 31
+    Height = 16
+    Caption = 'Sexo'
+    FocusControl = edSexo
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblNome: TLabel
+    Left = 109
+    Top = 110
     Width = 35
     Height = 16
-    Caption = 'NOME'
-    FocusControl = DBEdit2
+    Caption = 'Nome'
+    FocusControl = edNome
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
+    Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label3: TLabel
-    Left = 152
-    Top = 210
-    Width = 42
+  object lblEndereco: TLabel
+    Left = 290
+    Top = 182
+    Width = 60
     Height = 16
-    Caption = 'SENHA'
-    FocusControl = DBEdit3
+    Caption = 'Endere'#231'o'
+    FocusControl = edEndereco
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
+    Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label4: TLabel
-    Left = 461
-    Top = 210
-    Width = 29
+  object lblCNPJ: TLabel
+    Left = 355
+    Top = 110
+    Width = 30
     Height = 16
-    Caption = 'TIPO'
+    Caption = 'CNPJ'
+    FocusControl = edCNPJ
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
+    Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label5: TLabel
-    Left = 317
-    Top = 120
-    Width = 70
+  object lblTelefone: TLabel
+    Left = 617
+    Top = 110
+    Width = 55
     Height = 16
-    Caption = 'CADASTRO'
-    FocusControl = DBEdit5
+    Caption = 'Telefone'
+    FocusControl = edTelefone
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblDataCad: TLabel
+    Left = 509
+    Top = 184
+    Width = 114
+    Height = 16
+    Caption = 'Data de Cadastro'
+    FocusControl = edDataCad
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblCidade: TLabel
+    Left = 124
+    Top = 185
+    Width = 48
+    Height = 16
+    Caption = 'CIDADE'
+    FocusControl = edCidade
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblEstado: TLabel
+    Left = 48
+    Top = 185
+    Width = 50
+    Height = 16
+    Caption = 'ESTADO'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object lblDDD: TLabel
+    Left = 570
+    Top = 110
+    Width = 27
+    Height = 16
+    Caption = 'DDD'
+    FocusControl = edDDD
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
@@ -84,8 +161,8 @@ object FrmCadCliente: TFrmCadCliente
   end
   object PnlRodape: TPanel
     Left = 0
-    Top = 375
-    Width = 834
+    Top = 320
+    Width = 1001
     Height = 57
     Align = alBottom
     BevelOuter = bvNone
@@ -774,7 +851,7 @@ object FrmCadCliente: TFrmCadCliente
   object PnlTopo: TPanel
     Left = 0
     Top = 25
-    Width = 834
+    Width = 1001
     Height = 50
     Align = alTop
     BevelOuter = bvNone
@@ -2652,7 +2729,7 @@ object FrmCadCliente: TFrmCadCliente
     end
     object BtnNovo: TBitBtn
       AlignWithMargins = True
-      Left = 20
+      Left = 28
       Top = 3
       Width = 116
       Height = 45
@@ -3178,95 +3255,15 @@ object FrmCadCliente: TFrmCadCliente
         F2143E60FF773A5EFF7F2E58F342000000010000000000000000}
     end
   end
-  object DBEdit2: TDBEdit
-    Left = 152
-    Top = 180
-    Width = 500
-    Height = 24
-    DataField = 'NOME'
-    DataSource = DM.dtsUsuario
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 2
-  end
-  object DBEdit3: TDBEdit
-    Left = 152
-    Top = 225
-    Width = 261
-    Height = 24
-    DataField = 'SENHA'
-    DataSource = DM.dtsUsuario
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    PasswordChar = '*'
-    TabOrder = 3
-  end
-  object DBEdit5: TDBEdit
-    Left = 317
-    Top = 135
-    Width = 134
-    Height = 24
-    DataField = 'CADASTRO'
-    DataSource = DM.dtsUsuario
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 4
-  end
-  object DBEdit1: TDBEdit
-    Left = 152
-    Top = 135
-    Width = 134
-    Height = 24
-    DataField = 'IDUSUARIO'
-    DataSource = DM.dtsUsuario
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 5
-  end
-  object DBTipo: TDBComboBox
-    Left = 461
-    Top = 225
-    Width = 191
-    Height = 24
-    DataField = 'TIPO'
-    DataSource = DM.dtsUsuario
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ItemHeight = 16
-    Items.Strings = (
-      'ADMINISTRADOR'
-      'APOIO')
-    ParentFont = False
-    TabOrder = 6
-  end
   object pnlTitulo: TPanel
     Left = 0
     Top = 0
-    Width = 834
+    Width = 1001
     Height = 25
     Align = alTop
     BevelOuter = bvNone
     Color = clGradientActiveCaption
-    TabOrder = 7
+    TabOrder = 2
     object lblTitulo: TLabel
       Left = 11
       Top = 6
@@ -3280,5 +3277,218 @@ object FrmCadCliente: TFrmCadCliente
       Font.Style = [fsBold]
       ParentFont = False
     end
+  end
+  object edID: TDBEdit
+    Left = 48
+    Top = 127
+    Width = 48
+    Height = 24
+    DataField = 'ID'
+    DataSource = DM.dtsCadCliente
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+  end
+  object edSexo: TDBEdit
+    Left = 520
+    Top = 127
+    Width = 27
+    Height = 24
+    DataField = 'SEXO'
+    DataSource = DM.dtsCadCliente
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
+  end
+  object edNome: TDBEdit
+    Left = 109
+    Top = 127
+    Width = 232
+    Height = 24
+    DataField = 'NOME'
+    DataSource = DM.dtsCadCliente
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 5
+  end
+  object edEndereco: TDBEdit
+    Left = 290
+    Top = 204
+    Width = 201
+    Height = 24
+    DataField = 'ENDERECO'
+    DataSource = DM.dtsCadCliente
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 6
+  end
+  object edCNPJ: TDBEdit
+    Left = 355
+    Top = 127
+    Width = 150
+    Height = 24
+    DataField = 'CNPJ'
+    DataSource = DM.dtsCadCliente
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 7
+  end
+  object edTelefone: TDBEdit
+    Left = 617
+    Top = 127
+    Width = 186
+    Height = 24
+    DataField = 'TELEFONE'
+    DataSource = DM.dtsCadCliente
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 8
+  end
+  object edDataCad: TDBEdit
+    Left = 509
+    Top = 204
+    Width = 134
+    Height = 24
+    DataField = 'DATA_CAD'
+    DataSource = DM.dtsCadCliente
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 9
+  end
+  object edCidade: TDBEdit
+    Left = 123
+    Top = 204
+    Width = 153
+    Height = 24
+    DataField = 'CIDADE'
+    DataSource = DM.dtsCadCliente
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 10
+  end
+  object edDDD: TDBEdit
+    Left = 568
+    Top = 127
+    Width = 35
+    Height = 24
+    DataField = 'DDD'
+    DataSource = DM.dtsCadCliente
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 11
+  end
+  object cbEstado: TDBComboBox
+    Left = 48
+    Top = 204
+    Width = 57
+    Height = 24
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ItemHeight = 16
+    Items.Strings = (
+      'AC'
+      'AL'
+      'AP'
+      'AM'
+      'BA'
+      'CE'
+      'DF'
+      'ES'
+      'GO'
+      'MA'
+      'MT'
+      'MS'
+      'MG'
+      'PA'
+      'PB'
+      'PR'
+      'PE'
+      'PI'
+      'RJ'
+      'RN'
+      'RS'
+      'RO'
+      'RR'
+      'SC'
+      'SP'
+      'SE'
+      'TO')
+    ParentFont = False
+    TabOrder = 12
+  end
+  object dbCbInativo: TDBCheckBox
+    Left = 667
+    Top = 205
+    Width = 97
+    Height = 17
+    Caption = 'Inativo'
+    DataField = 'INATIVO'
+    DataSource = DM.dtsCadCliente
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 13
+    ValueChecked = 'True'
+    ValueUnchecked = 'False'
+  end
+  object cbPessoaFisica: TDBCheckBox
+    Left = 770
+    Top = 205
+    Width = 95
+    Height = 17
+    Caption = 'Pessoa Fisica'
+    DataSource = DM.dtsCadCliente
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 14
+    ValueChecked = 'True'
+    ValueUnchecked = 'False'
+    OnClick = cbPessoaFisicaClick
   end
 end

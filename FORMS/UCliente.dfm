@@ -1912,13 +1912,13 @@ object FrmPesquisaCliente: TFrmPesquisaCliente
       TabOrder = 0
     end
   end
-  object DBGrid1: TDBGrid
+  object gridClientes: TDBGrid
     Left = 0
     Top = 111
     Width = 1363
     Height = 636
     Align = alClient
-    DataSource = DM.dtsPesquisaUsu
+    DataSource = DM.dtsCadCliente
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -1966,9 +1966,9 @@ object FrmPesquisaCliente: TFrmPesquisaCliente
     object lblTitulo: TLabel
       Left = 29
       Top = 6
-      Width = 70
+      Width = 66
       Height = 19
-      Caption = 'Usu'#225'rios'
+      Caption = 'Clientes'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16

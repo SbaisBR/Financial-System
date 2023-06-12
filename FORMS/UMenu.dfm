@@ -2,7 +2,7 @@ object FrmMenu: TFrmMenu
   Left = 0
   Top = 0
   Caption = 'Menu'
-  ClientHeight = 672
+  ClientHeight = 712
   ClientWidth = 892
   Color = clTeal
   Font.Charset = DEFAULT_CHARSET
@@ -10,7 +10,8 @@ object FrmMenu: TFrmMenu
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  Menu = MainMenu1
+  FormStyle = fsMDIForm
+  Menu = frm
   OldCreateOrder = False
   Position = poDesigned
   WindowState = wsMaximized
@@ -2169,7 +2170,7 @@ object FrmMenu: TFrmMenu
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 653
+    Top = 693
     Width = 892
     Height = 19
     Panels = <
@@ -2189,13 +2190,14 @@ object FrmMenu: TFrmMenu
         Alignment = taCenter
         Width = 150
       end>
+    ExplicitTop = 673
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
     Left = 5
     Top = 600
   end
-  object MainMenu1: TMainMenu
+  object frm: TMainMenu
     Left = 5
     Top = 5
     object Cadastro: TMenuItem
@@ -4041,6 +4043,10 @@ object FrmMenu: TFrmMenu
       object Calculadora1: TMenuItem
         Caption = 'Calculadora'
         OnClick = Calculadora1Click
+      end
+      object EnviodeEmail1: TMenuItem
+        Caption = 'Envio de Email'
+        OnClick = EnviodeEmail1Click
       end
     end
     object Sobre: TMenuItem

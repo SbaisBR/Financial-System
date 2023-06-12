@@ -15,7 +15,7 @@ type
     StatusBar1: TStatusBar;
     LblCentro: TLabel;
     Timer1: TTimer;
-    MainMenu1: TMainMenu;
+    frm: TMainMenu;
     Cadastro: TMenuItem;
     Usuarios: TMenuItem;
     Movimentos: TMenuItem;
@@ -29,6 +29,8 @@ type
     btnClientes: TSpeedButton;
     Ferramentas1: TMenuItem;
     Calculadora1: TMenuItem;
+    EnviodeEmail1: TMenuItem;
+    procedure EnviodeEmail1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BtnMovimentoClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -59,7 +61,7 @@ implementation
 
 uses    UInformacoes, ULogin,
   UDM, UCalculadora , UCadMovimentacao, UMovimentacao, UCadUsuario, UUsuarios,
-  ULoginUsuario, UCadCliente;
+  ULoginUsuario, UCadCliente, Email;
 
 
 {$R *.dfm}
@@ -121,6 +123,12 @@ procedure TFrmMenu.Calculadora1Click(Sender: TObject);
 begin
   FrmCalculadora := TFrmCalculadora.create(nil);
   FrmCalculadora.ShowModal;
+end;
+
+procedure TFrmMenu.EnviodeEmail1Click(Sender: TObject);
+begin
+  frmEmail := TfrmEmail.create(nil);
+  frmEmail.Show;
 end;
 
 procedure TFrmMenu.FormClose(Sender: TObject; var Action: TCloseAction);

@@ -1,4 +1,4 @@
-unit UUsuarios;
+unit UCliente;
 
 interface
 
@@ -24,7 +24,7 @@ type
     LblQtde: TLabel;
     BtnSair: TBitBtn;
     DBNavigator1: TDBNavigator;
-    DBGrid1: TDBGrid;
+    gridClientes: TDBGrid;
     pnlTitulo: TPanel;
     lblTitulo: TLabel;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -51,76 +51,76 @@ uses UDM;
 procedure TFrmPesquisaCliente.BtnPesquisaClick(Sender: TObject);
 begin
   //Fechando e abrindo o SELECT no DBGrid
-  dm.cdsUsuario.Close;
-  dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO';
-  dm.cdsUsuario.Open;
+  dm.cdsClientes.Close;
+  dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE';
+  dm.cdsClientes.Open;
 
   //Opção de pesquisa por código
   case CBChave.ItemIndex of
     0:
     begin
-      dm.cdsUsuario.Close;
-      dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO WHERE IDUSUARIO = '''+EdtDescricao.Text+'''';
-      dm.cdsUsuario.Open;
+      dm.cdsClientes.Close;
+      dm.sqlClientes.CommandText := 'SELECT * FROM USUARIO WHERE ID = '''+EdtDescricao.Text+'''';
+      dm.cdsClientes.Open;
     end;
 
     //Opção de pesquisa por nome
     1:
     begin
-      dm.cdsUsuario.Close;
-      dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO WHERE NOME = '''+EdtDescricao.Text+'''';
-      dm.cdsUsuario.Open;
+      dm.cdsClientes.Close;
+      dm.sqlClientes.CommandText := 'SELECT * FROM USUARIO WHERE NOME = '''+EdtDescricao.Text+'''';
+      dm.cdsClientes.Open;
     end;
 
     //Opção  de pesquisa por senha
     2:
     begin
-      dm.cdsUsuario.Close;
-      dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO WHERE SENHA ='''+EdtDescricao.Text+'''';
-      dm.cdsUsuario.Open;
+      dm.cdsClientes.Close;
+      dm.sqlClientes.CommandText := 'SELECT * FROM USUARIO WHERE DATA_CAD ='''+EdtDescricao.Text+'''';
+      dm.cdsClientes.Open;
     end;
 
     //Opção de pesquisa por tipo
     3:
     begin
-      dm.cdsUsuario.Close;
-      dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO WHERE TIPO ='''+EdtDescricao.Text+'''';
-      dm.cdsUsuario.Open;
+      dm.cdsClientes.Close;
+      dm.sqlClientes.CommandText := 'SELECT * FROM USUARIO WHERE PESSOAFISICA ='''+EdtDescricao.Text+'''';
+      dm.cdsClientes.Open;
     end;
 
     //Opção de pesquisa por cadastro
     4:
     begin
-      dm.cdsUsuario.Close;
-      dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO WHERE CADASTRO = '''+MKInicio.Text+'''';
-      dm.cdsUsuario.Open;
+      dm.cdsClientes.Close;
+      dm.sqlClientes.CommandText := 'SELECT * FROM USUARIO WHERE ENDERECO = '''+MKInicio.Text+'''';
+      dm.cdsClientes.Open;
     end;
 
     //Opção de pesquisa por periodo
     5:
     begin
-      dm.cdsUsuario.Close;
-      dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO WHERE CADASTRO BETWEEN '''+MKInicio.Text+''' AND '''+MKFim.Text+'''';
-      dm.cdsUsuario.Open;
+      dm.cdsClientes.Close;
+      dm.sqlClientes.CommandText := 'SELECT * FROM USUARIO WHERE DATA_CAD BETWEEN '''+MKInicio.Text+''' AND '''+MKFim.Text+'''';
+      dm.cdsClientes.Open;
     end;
 
     //Opção de pesquisar todos os usuarios
     6:
     begin
-      dm.cdsUsuario.Close;
-      dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO';
-      dm.cdsUsuario.Open;
+      dm.cdsClientes.Close;
+      dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE';
+      dm.cdsClientes.Open;
     end;
   end;
 
-  LblQtde.Caption := 'Usuarios: '+#13+InttoStr(dm.cdsUsuario.RecordCount);
+  LblQtde.Caption := 'Clientes: '+#13+InttoStr(dm.cdsClientes.RecordCount);
 
   if (EdtDescricao.Text = '') or (MKInicio.Text = '') or (MKFim.Text = '') then
   begin
     Application.MessageBox('Campo está em branco!', 'Erro', MB_ICONINFORMATION+MB_OK);
     Exit;
-    dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO ORDER BY IDUSUARIO';
-    dm.cdsUsuario.Open;
+    dm.sqlClientes.CommandText := 'SELECT * FROM CLIENTE ORDER BY IDUSUARIO';
+    dm.cdsClientes.Open;
   end;
 
 //  '+CboxConsulta.Text+' = '''+EdtConsulta.Text+'''';
@@ -135,9 +135,9 @@ end;
 procedure TFrmPesquisaCliente.BtnTransferirClick(Sender: TObject);
 begin
   //Faz a variavel receber o registro selecionado
-  if dm.cdsUsuario.RecordCount > 0 then
+  if dm.cdsClientes.RecordCount > 0 then
   begin
-    Codigo:= dm.cdsUsuarioIDUSUARIO.AsInteger;
+//    Codigo:= dm.cds
   end;
 
 

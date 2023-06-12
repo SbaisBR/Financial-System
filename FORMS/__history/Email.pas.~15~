@@ -1,0 +1,116 @@
+unit Email;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, frxpngimage, ExtCtrls, StdCtrls, Buttons, IdMessage, IdIOHandler,
+  IdIOHandlerSocket, IdIOHandlerStack, IdSSL, IdSSLOpenSSL, IdBaseComponent,
+  IdComponent,IniFiles, IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase,
+  IdMessageClient, IdSMTPBase,  IdSMTP, IdHTTP,
+   IdAttachmentFile,IdText ;
+
+type
+  TfrmEmail = class(TForm)
+    pnlCentro: TPanel;
+    edAnexo: TEdit;
+    edAssunto: TEdit;
+    edDestinatario: TEdit;
+    memoMsg: TMemo;
+    pnlTitulo: TPanel;
+    lblTitulo: TLabel;
+    Panel1: TPanel;
+    lblDestinatario: TLabel;
+    lblAssunto: TLabel;
+    lblMensagem: TLabel;
+    lblAnexo: TLabel;
+    btnEnviar: TBitBtn;
+    btnCancelar: TBitBtn;
+    imgEmail: TImage;
+    procedure btnEnviarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmEmail: TfrmEmail;
+
+implementation
+
+uses UMensagem;
+
+{$R *.dfm}
+
+procedure TfrmEmail.btnCancelarClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+procedure TfrmEmail.btnEnviarClick(Sender: TObject);
+const
+  _PORTA = 578;
+  _SMTP  = 'smtp@gmail.com';
+  _EMAIL = 'murilo.ti32@gmail.com';
+  _SENHA = '123';
+var
+ LSMTP: TIdSMTP;
+ LMessage: TIdMessage;
+ LSocketSSL: TIdSSLIOHandlerSocketOpenSSL;
+ LArquivoAnexo: String;
+begin
+  LSMTP    := TIdSMTP.Create(nil);
+  LMessage := TIdMessage.Create(nil);
+  LSocketSSL := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
+
+  //Segurança
+  with LSocketSSL do
+  begin
+    with SSLOptions do
+    begin
+      Mode   := sslmClient;
+      Method := sslvTLSv1;
+    end;
+
+  Host := _SMTP; //smtp.gmail.com
+  Port := _PORTA;
+
+  end;
+
+  //SMTP
+  with LSMTP do
+  begin
+    IOHandler := LSocketSSL;
+    Host := _SMTP;
+    Port := _PORTA;
+    AuthType := atDefault;
+    UserName := _EMAIL;
+    Password := _SENHA;
+    UseTLS := utUseExplicitTLS;
+  end;
+
+  //Mensagem
+  with LMessage do
+  begin
+    From.Address := _EMAIL;
+    From.Name := _EMAIL;
+    Recipients.Add;
+    Recipients.Items[0].Address := edDestinatario.Text;
+    Subject := edAssunto.Text;
+    Body.Add(memoMsg.Lines.Text);
+  end;
+
+  try
+    LSMTP.Connect;
+    LSMTP.Send(LMessage); 
+
+    msg.Correto('Email enviado','Email enviado com sucesso');
+  Except
+    on E: Exception do
+      msg.Erro('Mensagem de erro','Ocorreu um erro ao enviar o emai');       
+  end;
+end;
+
+end.

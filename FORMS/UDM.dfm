@@ -334,7 +334,7 @@ object DM: TDM
   end
   object sqlCadCliente: TSQLDataSet
     SchemaName = 'sysdba'
-    CommandText = 'SELECT * FROM CLIENTE'#13#10'ORDER BY ID'
+    CommandText = 'SELECT * FROM CLIENTE '#13#10'ORDER BY ID'
     MaxBlobSize = -1
     Params = <>
     SQLConnection = Conexao
@@ -352,9 +352,9 @@ object DM: TDM
       FieldName = 'ENDERECO'
       Size = 100
     end
-    object sqlCadClienteCPF: TStringField
-      FieldName = 'CPF'
-      Size = 10
+    object sqlCadClienteCNPJ: TStringField
+      FieldName = 'CNPJ'
+      Size = 14
     end
     object sqlCadClienteTELEFONE: TStringField
       FieldName = 'TELEFONE'
@@ -371,6 +371,27 @@ object DM: TDM
       FieldName = 'ESTADO'
       FixedChar = True
       Size = 2
+    end
+    object sqlCadClienteDDD: TIntegerField
+      FieldName = 'DDD'
+    end
+    object sqlCadClienteSEXO: TStringField
+      FieldName = 'SEXO'
+      FixedChar = True
+      Size = 1
+    end
+    object sqlCadClienteINATIVO: TStringField
+      FieldName = 'INATIVO'
+      FixedChar = True
+      Size = 1
+    end
+    object sqlCadClienteDATABLOQ: TDateField
+      FieldName = 'DATABLOQ'
+    end
+    object sqlCadClientePESSOAFISICA: TStringField
+      FieldName = 'PESSOAFISICA'
+      FixedChar = True
+      Size = 11
     end
   end
   object dspCadCliente: TDataSetProvider
@@ -396,9 +417,10 @@ object DM: TDM
       FieldName = 'ENDERECO'
       Size = 100
     end
-    object cdsCadClienteCPF: TStringField
-      FieldName = 'CPF'
-      Size = 10
+    object cdsCadClienteCNPJ: TStringField
+      FieldName = 'CNPJ'
+      EditMask = '00.000.000/0000-00;1;_'
+      Size = 14
     end
     object cdsCadClienteTELEFONE: TStringField
       FieldName = 'TELEFONE'
@@ -406,6 +428,7 @@ object DM: TDM
     end
     object cdsCadClienteDATA_CAD: TDateField
       FieldName = 'DATA_CAD'
+      EditMask = '00/00/0000;1;_'
     end
     object cdsCadClienteCIDADE: TStringField
       FieldName = 'CIDADE'
@@ -416,10 +439,163 @@ object DM: TDM
       FixedChar = True
       Size = 2
     end
+    object cdsCadClienteDDD: TIntegerField
+      FieldName = 'DDD'
+    end
+    object cdsCadClienteSEXO: TStringField
+      FieldName = 'SEXO'
+      FixedChar = True
+      Size = 1
+    end
+    object cdsCadClienteINATIVO: TStringField
+      FieldName = 'INATIVO'
+      FixedChar = True
+      Size = 1
+    end
+    object cdsCadClienteDATABLOQ: TDateField
+      FieldName = 'DATABLOQ'
+      EditMask = '00/00/0000;1;_'
+    end
+    object cdsCadClientePESSOAFISICA: TStringField
+      FieldName = 'PESSOAFISICA'
+      FixedChar = True
+      Size = 11
+    end
   end
   object dtsCadCliente: TDataSource
     DataSet = cdsCadCliente
     Left = 283
     Top = 177
+  end
+  object sqlClientes: TSQLDataSet
+    SchemaName = 'sysdba'
+    CommandText = 'SELECT * FROM CLIENTE'#13#10'ORDER BY ID'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = Conexao
+    Left = 188
+    Top = 130
+    object IntegerField2: TIntegerField
+      FieldName = 'ID'
+      Required = True
+    end
+    object StringField4: TStringField
+      FieldName = 'NOME'
+      Size = 100
+    end
+    object StringField5: TStringField
+      FieldName = 'ENDERECO'
+      Size = 100
+    end
+    object StringField6: TStringField
+      FieldName = 'CNPJ'
+      Size = 14
+    end
+    object StringField7: TStringField
+      FieldName = 'TELEFONE'
+      Size = 14
+    end
+    object DateField2: TDateField
+      FieldName = 'DATA_CAD'
+    end
+    object StringField8: TStringField
+      FieldName = 'CIDADE'
+      Size = 100
+    end
+    object StringField9: TStringField
+      FieldName = 'ESTADO'
+      FixedChar = True
+      Size = 2
+    end
+    object IntegerField3: TIntegerField
+      FieldName = 'DDD'
+    end
+    object StringField10: TStringField
+      FieldName = 'SEXO'
+      FixedChar = True
+      Size = 1
+    end
+    object StringField11: TStringField
+      FieldName = 'INATIVO'
+      FixedChar = True
+      Size = 1
+    end
+    object DateField3: TDateField
+      FieldName = 'DATABLOQ'
+    end
+    object sqlClientesPESSOAFISICA: TIntegerField
+      FieldName = 'PESSOAFISICA'
+    end
+  end
+  object dspClientes: TDataSetProvider
+    DataSet = sqlClientes
+    Left = 220
+    Top = 130
+  end
+  object cdsClientes: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspClientes'
+    Left = 252
+    Top = 129
+    object IntegerField5: TIntegerField
+      FieldName = 'ID'
+      Required = True
+    end
+    object StringField12: TStringField
+      FieldName = 'NOME'
+      Size = 100
+    end
+    object StringField13: TStringField
+      FieldName = 'ENDERECO'
+      Size = 100
+    end
+    object StringField14: TStringField
+      FieldName = 'CNPJ'
+      EditMask = '00.000.000/0000-00;1;_'
+      Size = 14
+    end
+    object StringField15: TStringField
+      FieldName = 'TELEFONE'
+      Size = 14
+    end
+    object DateField4: TDateField
+      FieldName = 'DATA_CAD'
+      EditMask = '00/00/0000;1;_'
+    end
+    object StringField16: TStringField
+      FieldName = 'CIDADE'
+      Size = 100
+    end
+    object StringField17: TStringField
+      FieldName = 'ESTADO'
+      FixedChar = True
+      Size = 2
+    end
+    object IntegerField6: TIntegerField
+      FieldName = 'DDD'
+    end
+    object StringField18: TStringField
+      FieldName = 'SEXO'
+      FixedChar = True
+      Size = 1
+    end
+    object StringField19: TStringField
+      FieldName = 'INATIVO'
+      FixedChar = True
+      Size = 1
+    end
+    object DateField5: TDateField
+      FieldName = 'DATABLOQ'
+      EditMask = '00/00/0000;1;_'
+    end
+    object cdsClientesPESSOAFISICA: TIntegerField
+      FieldName = 'PESSOAFISICA'
+    end
+  end
+  object dtsClientes: TDataSource
+    DataSet = cdsClientes
+    Left = 283
+    Top = 129
   end
 end

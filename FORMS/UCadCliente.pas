@@ -1,4 +1,4 @@
-unit UCadUsuario;
+unit UCadCliente;
 
 interface
 
@@ -17,20 +17,34 @@ type
     BtnDeletar: TBitBtn;
     BtnEditar: TBitBtn;
     BtnNovo: TBitBtn;
-    Label1: TLabel;
-    Label2: TLabel;
-    DBEdit2: TDBEdit;
-    Label3: TLabel;
-    DBEdit3: TDBEdit;
-    Label4: TLabel;
-    Label5: TLabel;
-    DBEdit5: TDBEdit;
-    DBEdit1: TDBEdit;
-    DBTipo: TDBComboBox;
     BtnSair: TBitBtn;
     BtnPesquisar: TBitBtn;
     pnlTitulo: TPanel;
     lblTitulo: TLabel;
+    Bevel1: TBevel;
+    edID: TDBEdit;
+    edSexo: TDBEdit;
+    edNome: TDBEdit;
+    edEndereco: TDBEdit;
+    edCNPJ: TDBEdit;
+    edTelefone: TDBEdit;
+    edDataCad: TDBEdit;
+    edCidade: TDBEdit;
+    edDDD: TDBEdit;
+    lblID: TLabel;
+    lblSexo: TLabel;
+    lblNome: TLabel;
+    lblEndereco: TLabel;
+    lblCNPJ: TLabel;
+    lblTelefone: TLabel;
+    lblDataCad: TLabel;
+    lblCidade: TLabel;
+    lblEstado: TLabel;
+    lblDDD: TLabel;
+    cbEstado: TDBComboBox;
+    dbCbInativo: TDBCheckBox;
+    cbPessoaFisica: TDBCheckBox;
+    procedure cbPessoaFisicaClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure BtnPesquisarClick(Sender: TObject);
     procedure BtnAtualizarClick(Sender: TObject);
@@ -116,16 +130,22 @@ begin
   proximo:= dm.cdsCadClienteID.AsInteger + 1;   //Recebe o valor do ultimo registro e vai para o proximo '+1'
   dm.cdsCadCliente.Append;  //Adiciona mais uma coluna em branco para adionar um novo registro
   dm.cdsCadClienteID.AsInteger := proximo;   //O campo ID recebe o valor da variavel proximo
-  DBEdit2.SetFocus;   //Leva o foco para o DBEdit2
-  dm.cdsUsuarioCADASTRO.AsDateTime:=Date;  //O campo CADASTRO recebe a data atualizada
+  edNome.SetFocus;   //Leva o foco para o DBEdit2
+  dm.cdsCadClienteDATA_CAD.AsDateTime:=Date;  //O campo CADASTRO recebe a data atualizada
+
+  if dbCbInativo.Checked then
+  begin
+    dm.cdsCadClienteDATABLOQ.AsDateTime := Date;
+  end;
+
 end;
 
 procedure TFrmCadCliente.BtnPesquisarClick(Sender: TObject);
 begin
-  FrmPesquisaCliente:=TFrmPesquisaUsuario.Create(self);
+  FrmPesquisaCliente:=TFrmPesquisaCliente.Create(self);
   FrmPesquisaCliente.ShowModal;
   try
-  
+
   finally
     FrmPesquisaCliente.Free;
     FrmPesquisaCliente:= nil;
@@ -135,6 +155,17 @@ end;
 procedure TFrmCadCliente.BtnSairClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TFrmCadCliente.cbPessoaFisicaClick(Sender: TObject);
+begin
+  if cbPessoaFisica.Checked then
+  begin
+    dm.cdsCadClientePESSOAFISICA.AsString := 'T';
+  end
+  else
+    dm.cdsCadClientePESSOAFISICA.AsString := 'F';
+
 end;
 
 procedure TFrmCadCliente.FormKeyPress(Sender: TObject; var Key: Char);
